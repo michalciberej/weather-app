@@ -8,19 +8,28 @@ function resetInput() {
 }
 
 function resetContainer() {
-  document.querySelector('#card').remove();
+  document.querySelector('#cardContainer').lastChild.remove();
 }
 
 document.querySelector('input').addEventListener('keyup', async (e) => {
   if (e.which === 13) {
-    await storeDataToLocalstorage();
-    resetContainer();
-    await createCard();
+    if (localStorage.key(0) !== document.querySelector('input[type=text]').value) {
+      await storeDataToLocalstorage();
+    }
+    if (localStorage.length === 1) {
+      resetContainer();
+    }
+    createCard();
     resetInput();
   }
 });
 
-resetContainer();
-createCard();
+function loadLocalstorage() {
+  if (localStorage.length === 1) {
+    createCard();
+  }
+}
+
+loadLocalstorage();
 
 document.querySelector('input[type=checkbox]').addEventListener('click', () => changeTemperatureType());

@@ -72,9 +72,6 @@ svg {
   box-shadow: 0 1px 6px 0 var(--shadowClr);
 }
 
-
-
-
 .switch {
   position: relative;
   display: inline-block;
@@ -147,18 +144,15 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-
-
 #card {
   width: 20rem;
   height: 25rem;
-  background: linear-gradient(var(--blueClr) 35%, var(--whiteClr));
   border-radius: 1.2rem;
   box-shadow: 0 1px 6px 0 var(--shadowClr);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr repeat(5, 2.2rem);
-  padding: 0.5rem;
+  grid-template-rows: 1fr 1fr repeat(4, 2.8rem);
+  padding: 1rem;
 }
 
 #mainHeading {
@@ -168,21 +162,30 @@ input:checked + .slider:before {
   font-size: 2rem;
 }
 
+#temperatureData {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  displaY: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 2rem;
+}
+
 #temperatureNum {
-  grid-column: 2/3;
-  grid-row: 1/3;
   font-size: 5rem;
   line-height: 5rem;
-  text-shadow: 0px 1px 4px var(--shadowClr);
+  text-shadow: 0px 1px 6px var(--shadowClr);
+  position: relative;
+  z-index: 2;
 }
 
 #temperatureSymbol {
-  grid-column: 2/3;
-  grid-row: 1/3;
   font-size: 2.5rem;
   padding-right: 0.5rem;
   justify-self: end;
-  text-shadow: 0px 1px 4px var(--shadowClr);
+  text-shadow: 0px 1px 6px var(--shadowClr);
+  position: relative;
+  z-index: 2;
 }
 
 #placeData {
@@ -201,16 +204,36 @@ input:checked + .slider:before {
 }
 
 #temperature {
-  display: flex
+  display: flex;
+  justify-content: center;
 }
 
 #temperaturexy {
   text-shadow: 0px 1px 2px var(--shadowClr);
+  position: relative;
+  z-index: 2;
+  font-size: 1.2rem;
+  text-shadow: 0 1px 3px var(--shadowClr)
 }
 
 img {
-  scale: 1.5;
+  grid-column: 1/3;
+  grid-row: 1/2;
+  scale: 3;
   position: relative;
-  top: 1rem;
-  left: 1rem;
+  top: 3rem;
+  left: 4.5rem;
+  z-index: 1;
+}
+
+#humidityContainer,
+#windContainer,
+#updateContainer,
+#pressureContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-column: 1/3;
+  text-shadow: 0 1px 4px var(--shadowClr);
+  font-size: 1.1rem;
 }
