@@ -7,8 +7,8 @@ function resetInput() {
   document.querySelector('input').value = '';
 }
 
-function resetContainer() {
-  document.querySelector('#cardContainer').lastChild.remove();
+function resetContainer(id) {
+  document.querySelector(id).lastChild.remove();
 }
 
 document.querySelector('input').addEventListener('keyup', async (e) => {
@@ -17,7 +17,7 @@ document.querySelector('input').addEventListener('keyup', async (e) => {
       await storeDataToLocalstorage();
     }
     if (localStorage.length === 1) {
-      resetContainer();
+      resetContainer('#cardContainer');
     }
     createCard();
     resetInput();
