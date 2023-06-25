@@ -1,26 +1,26 @@
 import './style.css';
-
-const span = document.querySelector('span');
-const input = document.querySelector('input');
-
-async function fetchData() {
-  try {
-    const data = await fetch(`https://api.weatherapi.com/v1/current.json?key=75bd6722592a487fa0774223232306&q=${input.value}`, { mode: 'cors' });
-    const formatedData = await data.json();
-    console.log(formatedData);
-    span.textContent = `${formatedData.current.temp_c}°C`;
-  } catch {
-    console.error('ERROR FETCHING DATA');
-  }
-}
+import createCard from './card';
+import storeDataToLocalstorage from './async';
+import { changeTemperatureType } from './card';
 
 function resetInput() {
-  input.value = '';
+  document.querySelector('input').value = '';
 }
 
-input.addEventListener('keyup', (e) => {
+function resetContainer() {
+  document.querySelector('#card').remove();
+}
+
+document.querySelector('input').addEventListener('keyup', async (e) => {
   if (e.which === 13) {
-    fetchData();
+    await storeDataToLocalstorage();
+    resetContainer();
+    await createCard();
     resetInput();
   }
 });
+
+resetContainer();
+createCard();
+
+document.querySelector('input[type=checkbox]').addEventListener('click', () => changeTemperatureType());

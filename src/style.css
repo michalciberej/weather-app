@@ -1,0 +1,216 @@
+:root {
+  --yellowClr: #fde68a;
+  --grayClr: #5f6368;
+  --blueClr: #38bdf8;
+  --blackClr: #202124;
+  --whiteClr: #fafaf9;
+  --shadowClr: #171717;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+}
+
+body {
+min-height: 100vh;
+background-color: var(--blackClr);
+color: var(--whiteClr);
+}
+
+#container {
+  min-height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+#inputContainer {
+  height: 2.2rem;
+  width: 20rem;
+  border-radius: 24px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--grayClr);
+  cursor: pointer;
+  background-color: var(--blackClr);
+  color: var(--whiteClr);
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  margin: 0 0.5rem;
+  height: 100%;
+  width: 75%;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--whiteClr);
+}
+
+svg {
+  width: 1.5rem;
+  fill: var(--whiteClr);
+}
+
+#inputContainer:hover {
+  background-color: var(--grayClr);
+  box-shadow: 0 1px 6px 0 var(--shadowClr);
+}
+
+#inputContainer:focus {
+  background: var(--grayClr);
+  box-shadow: 0 1px 6px 0 var(--shadowClr);
+}
+
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3.8rem;
+  height: 1.7rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--blackClr);
+  transition: .5
+}
+
+.slider:hover {
+  background-color: var(--blackClr);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--grayClr);
+  transition: .5s;
+  z-index: 2;
+}
+
+#celsius {
+  position: relative;
+  z-index: 1;
+  left: -0.9rem;
+  top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+#fahrenheita {
+  position: relative;
+  z-index: 1;
+  right: 0.4rem;
+  top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--grayClr);
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.8rem);
+}
+
+.slider.round {
+  border-radius: 1.7rem;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+#card {
+  width: 20rem;
+  height: 25rem;
+  background: linear-gradient(var(--blueClr) 35%, var(--whiteClr));
+  border-radius: 1.2rem;
+  box-shadow: 0 1px 6px 0 var(--shadowClr);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr repeat(5, 2.2rem);
+  padding: 0.5rem;
+}
+
+#mainHeading {
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+#temperatureNum {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  font-size: 5rem;
+  line-height: 5rem;
+  text-shadow: 0px 1px 4px var(--shadowClr);
+}
+
+#temperatureSymbol {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  font-size: 2.5rem;
+  padding-right: 0.5rem;
+  justify-self: end;
+  text-shadow: 0px 1px 4px var(--shadowClr);
+}
+
+#placeData {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  font-size: 1.5rem;
+  text-shadow: 0px 1px 4px var(--shadowClr);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+#city,
+#country {
+  display: block;
+}
+
+#temperature {
+  display: flex
+}
+
+#temperaturexy {
+  text-shadow: 0px 1px 2px var(--shadowClr);
+}
+
+img {
+  scale: 1.5;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+}
